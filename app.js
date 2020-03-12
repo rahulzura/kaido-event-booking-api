@@ -8,6 +8,9 @@ const graphQlResolvers = require("./graphql/resolvers/index");
 const isAuth = require("./middleware/is-auth");
 
 const app = express();
+
+// Globals
+const PORT = process.env.NODE_ENV === "production" ? process.env.PORT : 8000;
 let server;
 
 app.use(bodyParser.json());
@@ -44,14 +47,10 @@ mongoose
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
-    server = app.listen(8000, () => {
+    server = app.listen(PORT, () => {
       console.log(`App is listening on port ${server.address().port}`);
     });
   })
   .catch(err => {
     console.log(err);
   });
-
-// const server = app.listen(3000, () => {
-//   console.log(`App is listening on port ${server.address().port}`);
-// });
