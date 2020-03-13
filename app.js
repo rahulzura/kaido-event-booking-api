@@ -10,7 +10,7 @@ const isAuth = require("./middleware/is-auth");
 const app = express();
 
 // Globals
-const PORT = process.env.NODE_ENV === "production" ? process.env.PORT : 8000;
+const PORT = process.env.NODE_ENV === "production" ? process.env.PORT : 7000;
 let server;
 
 app.use(bodyParser.json());
